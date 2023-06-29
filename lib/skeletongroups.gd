@@ -39,3 +39,4 @@ DeclareAttribute("Shifts", IsSkeleton);
 DeclareAttribute("HolonomyPermutationResetComponents", IsSkeleton);
 
 DeclareGlobalFunction("DisplayHolonomyComponents");
+DeclareGlobalFunction("DisplayHolonomyGroupComponents");

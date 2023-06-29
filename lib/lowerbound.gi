@@ -35,6 +35,7 @@ InstallGlobalFunction(GetPermutationGroups, function(arg)
 
         # Store the permutation group information as a tuple
         permutationGroup := rec(
+          depth := dx,
           states := x1,
           permutatorWords := PermutatorGeneratorWords
         );

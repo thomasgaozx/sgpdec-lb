@@ -15,3 +15,4 @@ ReadPackage("SgpDec","/lib/fl.gd");
 ReadPackage("SgpDec","/lib/coords.gd");
 ReadPackage("SgpDec","/lib/holonomy.gd");
 ReadPackage("SgpDec","/lib/lowerbound.gd");
+ReadPackage("SgpDec","/lib/subsystems.gd");

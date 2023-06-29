@@ -362,3 +362,32 @@ HolonomyInfoString := function(skeleton)
                                    s]," ");
 end;
 MakeReadOnlyGlobal("HolonomyInfoString");
+
+HolonomyGroupComponents := function(sk)
+  local groupnames,level, i,l,groups,str;
+  groupnames := [];
+  for level in [1..DepthOfSkeleton(sk)-1] do
+    l := [];
+    groups := GroupComponents(sk)[level];
+    for i in [1..Length(groups)]  do
+      if IsTrivial(groups[i]) then
+        continue;
+      elif SgpDecOptionsRec.SMALL_GROUPS then
+        Add(l, StructureDescription(groups[i]));
+      else
+        Add(l, Concatenation("(",String(NumOfPointsInSlot(sk,level,i)),
+                             ",|G|=", String(Order(groups[i])),")"));
+      fi;
+    od;
+    if Length(l) > 0 then
+      Add(groupnames,l);
+    fi;
+  od;
+  return groupnames;
+end;
+MakeReadOnlyGlobal("HolonomyGroupComponents");
+
+InstallGlobalFunction(DisplayHolonomyGroupComponents,
+function(skeleton)
+  Print(HolonomyGroupComponents(skeleton));
+end);
